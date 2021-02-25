@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--mybatis配置信息-->
+<configuration>
+    <!--mybatis的配置环境-->
+    <environments default="mysql">
+        <!--mybatis配置的具体的环境信息-->
+        <environment id="mysql">
+            <!--事务管理 采用JDBC事务-->
+            <transactionManager type="JDBC"/>
+            <!--数据源 采用池子类型-->
+            <dataSource type="POOLED">
+                <!--数据源的四大组件-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis01"/>
+                <property name="username" value="root"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--
+      mapper 映射器
+      orm  object relationship mapping
+      把实体类和数据库中的表产生一一对应(映射)的关系
+      实体类                   表
+      属性                    字段
+      id                      id
+      username               username
+      address                address
+      gender                 gender
+      在映射时，确保实体类中的属性名称和表中的字段名称以及属性的数据类型和字段的数据类型高度保持一致。
+      带来的好处就是封装便利
+    -->
+    <mappers>
+        <!--XXXMapper.xml 存放的就是操作数据库表的一些配置信息-->
+        <mapper resource="com/zhiyou100/dao/IUserDao.xml"/>
+    </mappers>
+</configuration>

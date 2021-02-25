@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhiyou100.dao.IUserDao">
+    <!--
+        在mapper.xml文件中
+        id              映射接口文件中的方法名称
+        resultType      映射接口文件中访问的返回值类型,返回值类型没有集合类型
+        parameterType   映射接口文件中方法参数的数据类型
+    -->
+    <select id="getAllUsers" resultType="com.zhiyou100.pojo.User">
+        select * from user
+    </select>
+</mapper>
